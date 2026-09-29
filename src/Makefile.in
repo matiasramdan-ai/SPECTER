@@ -24,7 +24,7 @@ OZ       = 5
 ORD      = 2
 
 # SOLVER:  (read the file SOLVERS for a list of options)
-SOLVER   = BOUSS
+SOLVER   = HD
 
 # PRECISION: (SINGLE or DOUBLE)
 PRECISION= DOUBLE
@@ -56,7 +56,7 @@ COMPILER   = GNU
 MPI        = OPEN
 
 # FFTWDIR contains the path to the FFTW libraries
-FFTWDIR = /home/mfontana/fftw/3.3.8
+FFTWDIR = /opt/ohpc/pub/libs/gnu15/fftw/3.3.11
 
 #****************************************************************************
 # Compiler and MPI library dependent section
@@ -112,8 +112,8 @@ CC_GNU        = gcc
 FFLAGS_GNU    = -O3 -funroll-loops
 FPSPEC_GNU    = -O3 -funroll-loops
 # GCC 10 specific options, uncomment if using GCC > v10.0
-#FFLAGS_GNU   += -w -fallow-argument-mismatch
-#FPSPEC_GNU   += -w -fallow-argument-mismatch
+FFLAGS_GNU   += -w -fallow-argument-mismatch
+FPSPEC_GNU   += -w -fallow-argument-mismatch
 CFLAGS_GNU    = -O3
 GNU_OMP       = -fopenmp
 TARGET_GNU    = -mtune=native -mfpmath=both
@@ -142,12 +142,12 @@ MPILD_MPICH   = -lmpich -lmpichf90 -lfmpich -lpthread -lrt -lmpich \
   -lpthread -lrt -luuid
 #
 # OPENMPI (OPEN)
-MPIINC_OPEN   = -I/opt/ohpc/pub/mpi/openmpi3-gnu7/3.1.6/include
-MPILIB_OPEN   = -L/opt/ohpc/pub/mpi/openmpi3-gnu7/3.1.6/lib
-MPILD_OPEN    = -I/opt/ohpc/pub/mpi/openmpi3-gnu7/3.1.6/include -pthread \
-                -I/opt/ohpc/pub/mpi/openmpi3-gnu7/3.1.6/lib -Wl,-rpath \
-                -Wl,/opt/ohpc/pub/mpi/openmpi3-gnu7/3.1.6/lib -Wl,--enable-new-dtags \
-                -L/opt/ohpc/pub/mpi/openmpi3-gnu7/3.1.6/lib -lmpi_usempif08 \
+MPIINC_OPEN   = -I/opt/ohpc/pub/mpi/openmpi5-gnu15/5.0.7/include
+MPILIB_OPEN   = -L/opt/ohpc/pub/mpi/openmpi5-gnu15/5.0.7/lib
+MPILD_OPEN    = -I/opt/ohpc/pub/mpi/openmpi5-gnu15/5.0.7/include \
+                -I/opt/ohpc/pub/mpi/openmpi5-gnu15/5.0.7/lib -Wl,-rpath \
+                -Wl,/opt/ohpc/pub/mpi/openmpi5-gnu15/5.0.7/lib -Wl,--enable-new-dtags \
+                -L/opt/ohpc/pub/mpi/openmpi5-gnu15/5.0.7/lib -lmpi_usempif08 \
                 -lmpi_usempi_ignore_tkr -lmpi_mpifh -lmpi
 #
 # MPICH-GM (GM)
