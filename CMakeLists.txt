@@ -287,7 +287,6 @@ target_link_libraries(${SOLVER}
         project_gpu
         project_defs
         ic_lib
-        particles_lib
         force_lib
         icp_lib
         stepper_lib
